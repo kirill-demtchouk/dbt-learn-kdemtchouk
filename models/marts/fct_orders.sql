@@ -3,7 +3,7 @@ SELECT
     o.order_id,
     o.order_date,
     o.status,
-    SUM(p.amount/100) AS amount
+    SUM(p.amount) AS amount
 FROM {{ ref('stg_orders') }} AS o
 JOIN {{ ref('stg_payments') }} AS p
     ON o.order_id = p.order_id
